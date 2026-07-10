@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@animateicons/react':
+        specifier: ^0.3.4
+        version: 0.3.4(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@tailwindcss/vite':
         specifier: ^4.3.2
         version: 4.3.2(vite@7.3.6(jiti@2.7.0)(lightningcss@1.32.0))
@@ -26,9 +29,15 @@ importers:
       react-dom:
         specifier: ^19.1.0
         version: 19.2.7(react@19.2.7)
+      react-icons:
+        specifier: ^5.7.0
+        version: 5.7.0(react@19.2.7)
       tailwindcss:
         specifier: ^4.3.2
         version: 4.3.2
+      zustand:
+        specifier: ^5.0.14
+        version: 5.0.14(@types/react@19.2.17)(react@19.2.7)
     devDependencies:
       '@tauri-apps/cli':
         specifier: ^2
@@ -50,6 +59,13 @@ importers:
         version: 7.3.6(jiti@2.7.0)(lightningcss@1.32.0)
 
 packages:
+
+  '@animateicons/react@0.3.4':
+    resolution: {integrity: sha512-7IO7aLBdp7p4awGx3sOTVVcU8s9kzHXBK2R27y1gGKfk3nI1gYh8+McVCtCkwa7ouiFwmBEDwrUEODpNOv+bSQ==}
+    engines: {node: '>=18.17.0'}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -866,6 +882,11 @@ packages:
     peerDependencies:
       react: ^19.2.7
 
+  react-icons@5.7.0:
+    resolution: {integrity: sha512-LBLy340Rzqy6+/yVhZKT3B/QpP1BZaesGqasf09HPOBzRarcDIFH0WwXlXQfE7q7ipxK4MSiC5DIBWURCny6fw==}
+    peerDependencies:
+      react: '*'
+
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
@@ -958,7 +979,30 @@ packages:
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
+  zustand@5.0.14:
+    resolution: {integrity: sha512-/8tAspM5LMPr28b3fwLYrtdj77ECpfZviaP75CMTnwO8ISyaE4GDIG/9rDDYq/cH9D2Xw2A2RXglLInmVBQB/g==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
+
 snapshots:
+
+  '@animateicons/react@0.3.4(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+    dependencies:
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   '@babel/code-frame@7.29.7':
     dependencies:
@@ -1582,6 +1626,10 @@ snapshots:
       react: 19.2.7
       scheduler: 0.27.0
 
+  react-icons@5.7.0(react@19.2.7):
+    dependencies:
+      react: 19.2.7
+
   react-refresh@0.17.0: {}
 
   react@19.2.7: {}
@@ -1656,3 +1704,8 @@ snapshots:
       lightningcss: 1.32.0
 
   yallist@3.1.1: {}
+
+  zustand@5.0.14(@types/react@19.2.17)(react@19.2.7):
+    optionalDependencies:
+      '@types/react': 19.2.17
+      react: 19.2.7

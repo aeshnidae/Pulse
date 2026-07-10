@@ -13,8 +13,13 @@
     "windows": [
       {
         "title": "Pulse",
-        "width": 800,
-        "height": 600
+        "width": 200,
+        "height": 200,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar":false
       }
     ],
     "security": {
