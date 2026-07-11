@@ -1,6 +1,7 @@
 import { useAppStore } from "../../state/useAppStore";
 import { motion } from "framer-motion";
 
+
 // 1. Converts polar coordinates (angle + radius) to cartesian (x, y) for the SVG
 const polarToCartesian = (
   centerX: number,

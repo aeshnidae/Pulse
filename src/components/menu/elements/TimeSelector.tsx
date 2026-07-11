@@ -10,33 +10,37 @@ export function TimeSelector() {
     };
 
     return (
-        <div className="flex items-center space-x-2 p-2 bg-gray-100 rounded-lg shadow-inner">
+        <div className="flex items-center ">
             {/* Hours Input */}
             <div className="flex flex-col items-center">
-                <label htmlFor="hours" className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Hours</label>
+                
                 <input
                     id="hours"
                     type="number"
                     value={hours}
                     onChange={(e) => handleTimeChange(setHours, e.target.value)}
-                    className="w-20 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-center"
+                    className="
+                        text-center text-white 
+                        focus:ring-blue-500 focus:border-blue-500 
+                        [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
+                    "
                     min="0"
                     max="23"
                 />
             </div>
 
-            {/* Separator */}
-            <span className="text-xl font-bold text-gray-600">:</span>
-
             {/* Minutes Input */}
             <div className="flex flex-col items-center">
-                <label htmlFor="minutes" className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Minutes</label>
+                
                 <input
                     id="minutes"
                     type="number"
                     value={minutes}
                     onChange={(e) => handleTimeChange(setMinutes, e.target.value)}
-                    className="w-20 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-center"
+                    className="
+                        text-center text-white 
+                        [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
+                    "
                     min="0"
                     max="59"
                 />
@@ -44,3 +48,8 @@ export function TimeSelector() {
         </div>
     );
 }
+
+// Notes
+// <label htmlFor="hours" className="text-xs text-gray-500 mb-1 uppercase tracking-wider">HH</label>
+// <span className="text-xl font-bold text-gray-600">:</span>
+// border border-gray-300/10

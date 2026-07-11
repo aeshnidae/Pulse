@@ -2,20 +2,16 @@
 import { Time } from "./clockface/Time";
 import { MenuEntry } from "./menu/MenuEntry";
 // State
-// import { useAppStore } from "../state/useAppStore";
+import { useAppStore } from "../state/useAppStore";
+// Commands
 import { toggleMenuCommand } from "../commands/uiCommands";
 
 
 export function ClockFace() {
-  // Lets pull the context
-  // const isMenuActive = useAppStore((state) => state.isMenuActive);
-
-  // Later
-  // const { opacity, scale} = useWidgetState();
-
+  const isMenuActive = useAppStore((state) => state.isMenuActive);
   return (
     <div
-      onClick={toggleMenuCommand}
+      onClick={!isMenuActive ? toggleMenuCommand : undefined}
       className="
             absolute
             flex
