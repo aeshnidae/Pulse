@@ -15,7 +15,9 @@ export interface TimeSlice {
 // Everything related to the UI state, but can be forgotten on restart
 export interface UiSlice {
     isMenuActive: boolean;
-    menuIndicator: "A" | "B" | "C";
+    currentMenuIndex: number;
+    slideDirection: number;
+    menuItemsCount: number,
     // activeTab: 'tasks' | 'settings' | 'none';
 }
 

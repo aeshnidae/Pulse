@@ -9,7 +9,6 @@ export const formatCurrentTime = (now: Date) => {
 };
 //----------------------------------------------------------
 
-
 // ---------------------------------------------------------
 // A pure routing helper for calculating progress percentage
 export const determineProgress = (
@@ -83,15 +82,23 @@ export const calculateDayProgress = (
 };
 //----------------------------------------------------------
 
-
 //----------------------------------------------------------
 // Get the current date string (26 MAY WED)
-export function getDate(now: Date) {
+export function getDateString(now: Date) {
   const options: Intl.DateTimeFormatOptions = {
-    day: 'numeric', // ex 13
-    month: 'short', // ex May
-    weekday: 'short'// ex Wed
+    day: "numeric", // ex 13
+    month: "short", // ex May
+    weekday: "short", // ex Wed
   };
-  return now.toLocaleDateString('en-US', options).toUpperCase();
+  return now.toLocaleDateString("en-US", options).toUpperCase();
+}
+//----------------------------------------------------------
+
+//----------------------------------------------------------
+// Offset the date with provided hours and minutes
+export function calculateEndTime(now: Date, hours: number, minutes: number) {
+  const offsetMs = hours * 60 * 60 * 1000 + minutes * 60 * 1000;
+  const endTime = new Date(now.getTime() + offsetMs);
+  return endTime;
 }
 //----------------------------------------------------------

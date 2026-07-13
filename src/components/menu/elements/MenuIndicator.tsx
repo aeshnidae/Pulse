@@ -1,4 +1,4 @@
-import { useAppStore } from "../../state/useAppStore";
+import { useAppStore } from "../../../state/useAppStore";
 import { motion } from "framer-motion";
 
 
@@ -44,7 +44,7 @@ const describeArc = (
 };
 
 export function MenuIndicator() {
-  const currentState = useAppStore((state) => state.menuIndicator);
+  const currentState = useAppStore((state) => state.currentMenuIndex);
   // Using a 100x100 viewBox. Radius 48 leaves a 2px padding at the edges.
   const center = 50;
   const radius = 48;
@@ -52,9 +52,9 @@ export function MenuIndicator() {
   // Bottom center is 180 degrees.
   // Each segment spans 24 degrees, with a 4-degree gap between them.
   const segments = [
-    { id: "C", start: 140, end: 164 },
-    { id: "B", start: 168, end: 192 },
-    { id: "A", start: 196, end: 220 },
+    { id: 2, start: 140, end: 164 },
+    { id: 1, start: 168, end: 192 },
+    { id: 0, start: 196, end: 220 },
   ] as const;
 
   return (

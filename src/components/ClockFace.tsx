@@ -1,6 +1,6 @@
 // UI
 import { Time } from "./clockface/Time";
-import { MenuEntry } from "./menu/MenuEntry";
+import { MenuEntry } from "./MenuEntry";
 // State
 import { useAppStore } from "../state/useAppStore";
 // Commands

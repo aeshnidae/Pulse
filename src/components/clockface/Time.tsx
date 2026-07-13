@@ -29,7 +29,7 @@ export function Time() {
         }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="text-[10px] translate-y-2 font-medium tracking-[0.2em] uppercase">
+        <div className="text-[10px] translate-y-2 font-medium tracking-[0.2em] uppercase bg-red-500/0 text-center">
           {dateOrTask}
         </div>
       </motion.div>

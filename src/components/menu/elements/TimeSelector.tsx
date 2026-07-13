@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export function TimeSelector() {
-    const [hours, setHours] = useState<string>('09');
-    const [minutes, setMinutes] = useState<string>('30');
+interface TimeSelectorProps {
+    hours: number;
+    minutes: number;
+    onChange: (hours: number, minutes: number) => void;
+}
 
-    // Simple change handler for demonstration
-    const handleTimeChange = (setter: React.Dispatch<React.SetStateAction<string>>, value: string) => {
-        setter(value);
+export function TimeSelector({ hours, minutes, onChange }: TimeSelectorProps) {
+    const handleHoursChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newHours = parseInt(e.target.value, 10);
+        onChange(isNaN(newHours) ? 0 : newHours, minutes);
+    };
+
+    const handleMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newMinutes = parseInt(e.target.value, 10);
+        onChange(hours, isNaN(newMinutes) ? 0 : newMinutes);
     };
 
     return (
         <div className="flex items-center ">
             {/* Hours Input */}
             <div className="flex flex-col items-center">
-                
                 <input
                     id="hours"
                     type="number"
-                    value={hours}
-                    onChange={(e) => handleTimeChange(setHours, e.target.value)}
+                    value={hours.toString().padStart(2, '0')}
+                    onChange={handleHoursChange}
                     className="
-                        text-center text-white 
-                        focus:ring-blue-500 focus:border-blue-500 
+                        text-center text-white bg-transparent outline-none
                         [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
                     "
                     min="0"
@@ -31,14 +37,13 @@ export function TimeSelector() {
 
             {/* Minutes Input */}
             <div className="flex flex-col items-center">
-                
                 <input
                     id="minutes"
                     type="number"
-                    value={minutes}
-                    onChange={(e) => handleTimeChange(setMinutes, e.target.value)}
+                    value={minutes.toString().padStart(2, '0')}
+                    onChange={handleMinutesChange}
                     className="
-                        text-center text-white 
+                        text-center text-white bg-transparent outline-none
                         [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
                     "
                     min="0"
@@ -48,8 +53,3 @@ export function TimeSelector() {
         </div>
     );
 }
-
-// Notes
-// <label htmlFor="hours" className="text-xs text-gray-500 mb-1 uppercase tracking-wider">HH</label>
-// <span className="text-xl font-bold text-gray-600">:</span>
-// border border-gray-300/10

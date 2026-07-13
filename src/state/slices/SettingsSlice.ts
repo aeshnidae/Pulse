@@ -8,7 +8,7 @@ export const createSettingsSlice: StateCreator<AppStore, [], [], SettingsSlice> 
     isQuickTaskActive: false,
     quickTaskStart: null,
     quickTaskEnd: null,
-    quickTaskName: "Wash dishes",
+    quickTaskName: "",
 
     // Day Progress
     dayStart: 0,

@@ -2,9 +2,9 @@ import { StateCreator } from "zustand";
 import { AppStore, TimeSlice } from "../../models/store.types";
 
 export const createTimeSlice: StateCreator<AppStore, [], [], TimeSlice> = () => ({
-    progressPercent: 17,
+    progressPercent: 50,
     seconds: "0",
-    minutes: "0",
-    hours: "0",
-    dateOrTask: "26 MAY WED"
+    minutes: "00",
+    hours: "12",
+    dateOrTask: "12 JUN FRI"
 })
