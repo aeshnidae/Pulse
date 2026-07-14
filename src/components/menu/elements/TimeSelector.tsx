@@ -27,7 +27,7 @@ export function TimeSelector({ hours, minutes, onChange }: TimeSelectorProps) {
                     value={hours.toString().padStart(2, '0')}
                     onChange={handleHoursChange}
                     className="
-                        text-center text-white bg-transparent outline-none
+                        w-8 text-center text-white bg-transparent outline-none
                         [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
                     "
                     min="0"
@@ -43,7 +43,7 @@ export function TimeSelector({ hours, minutes, onChange }: TimeSelectorProps) {
                     value={minutes.toString().padStart(2, '0')}
                     onChange={handleMinutesChange}
                     className="
-                        text-center text-white bg-transparent outline-none
+                        w-8 text-center text-white bg-transparent outline-none
                         [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
                     "
                     min="0"

@@ -31,7 +31,7 @@ export function MenuElements() {
     const slideDirection = useAppStore((state) => state.slideDirection);
 
     return (
-        <div className="relative overflow-hidden w-32 h-24 bg-black/50">
+        <div className="relative overflow-hidden w-32 h-24">
             <AnimatePresence initial={false} custom={slideDirection}>
                 <motion.div
                 key={currentIndex}

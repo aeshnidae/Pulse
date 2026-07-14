@@ -7,7 +7,7 @@ import { ChevronRightIcon } from "@animateicons/react/lucide";
 export function MenuArrows() {
   const themeColor = useAppStore((state) => state.themeColor);
   return (
-    <div className="flex justify-between items-center w-full">
+    <div className="absolute inset-x-0 px-[0.5] flex justify-between items-center z-20 pointer-events-auto">
       <button onClick={handlePrevMenu}>
         <ChevronLeftIcon size={24} duration={0.4} color={themeColor} />
       </button>

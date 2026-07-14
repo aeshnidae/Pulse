@@ -27,7 +27,6 @@ const backdropVariants: Variants = {
   },
 };
 
-
 export function MenuEntry() {
   const isMenuActive = useAppStore((state) => state.isMenuActive);
 
@@ -47,7 +46,7 @@ export function MenuEntry() {
 
           {/* Back Button */}
           <button
-            className="absolute translate-y-16"
+            className="absolute bottom-3 z-20"
             onClick={toggleMenuCommand}
           >
             <CircleChevronDownIcon size={20} color="#ffffff" />
