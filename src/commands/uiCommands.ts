@@ -2,11 +2,9 @@ import { useAppStore } from "../state/useAppStore";
 import { calculateEndTime } from "../utils/timeLogic";
 
 export const toggleMenuCommand = () => {
-  const currentState = useAppStore.getState();
-
-  useAppStore.setState({
-    isMenuActive: !currentState.isMenuActive,
-  });
+  useAppStore.setState((state) => ({
+    isMenuActive: !state.isMenuActive,
+  }));
 };
 
 export const setQuickTask = (
@@ -28,5 +26,18 @@ export const stopQuickTask = () => {
   useAppStore.setState({
     isQuickTaskActive: false,
     quickTaskName: "",
-  })
-}
+  });
+};
+
+export const toggleBeeperCommand = () => {
+  useAppStore.setState((state) => ({
+    isBeeperActive: !state.isBeeperActive,
+  }));
+};
+
+export const setBeeper = (hours: number, minutes: number) => {
+  useAppStore.setState({
+    beeperIntervalHours: hours,
+    beeperIntervalMinutes: minutes,
+  });
+};

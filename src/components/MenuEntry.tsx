@@ -38,7 +38,7 @@ export function MenuEntry() {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="absolute inset-0 z-10 bg-black/20 flex flex-col items-center justify-center"
+          className="absolute inset-0 z-10 bg-black/20 flex flex-col items-center justify-center pointer-events-auto"
         >
           <MenuIndicator />
           <MenuArrows />
@@ -46,6 +46,7 @@ export function MenuEntry() {
 
           {/* Back Button */}
           <button
+            type="button"
             className="absolute bottom-3 z-20"
             onClick={toggleMenuCommand}
           >

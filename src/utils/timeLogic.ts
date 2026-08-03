@@ -9,6 +9,8 @@ export const formatCurrentTime = (now: Date) => {
 };
 //----------------------------------------------------------
 
+
+
 // ---------------------------------------------------------
 // A pure routing helper for calculating progress percentage
 export const determineProgress = (
@@ -82,6 +84,8 @@ export const calculateDayProgress = (
 };
 //----------------------------------------------------------
 
+
+
 //----------------------------------------------------------
 // Get the current date string (26 MAY WED)
 export function getDateString(now: Date) {
@@ -94,6 +98,8 @@ export function getDateString(now: Date) {
 }
 //----------------------------------------------------------
 
+
+
 //----------------------------------------------------------
 // Offset the date with provided hours and minutes
 export function calculateEndTime(now: Date, hours: number, minutes: number) {
@@ -102,3 +108,12 @@ export function calculateEndTime(now: Date, hours: number, minutes: number) {
   return endTime;
 }
 //----------------------------------------------------------
+
+
+
+//----------------------------------------------------------
+// Calculate minutes from hours+minutes 
+export function hoursMinutesToMinutes(hours: number, minutes:number) {
+  const toMinutes = hours * 60 + minutes;
+  return toMinutes;
+}

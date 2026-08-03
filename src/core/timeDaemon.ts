@@ -1,3 +1,4 @@
+import { processBeeperTick } from "../state/beeperActions";
 import { processQuickTaskTick } from "../state/quickTaskActions";
 import { processTimeTick } from "../state/timeActions";
 // Quick note, i am saving development time and running this in my own browser for seeing the changes instantly without having to
@@ -30,6 +31,10 @@ export const startTimeDaemon = () => {
     // Takes care of:
     // Turning off the quick task when it is finished
     processQuickTaskTick(now);
+
+    // Takes care of:
+    // Beeping
+    processBeeperTick(now);
 
   }, 1000); // Ticks every second
 };

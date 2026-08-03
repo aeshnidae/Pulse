@@ -11,7 +11,12 @@ export function ClockFace() {
   const isMenuActive = useAppStore((state) => state.isMenuActive);
   return (
     <div
-      onClick={!isMenuActive ? toggleMenuCommand : undefined}
+      onClick={(event) => {
+        if (!isMenuActive) {
+          event.stopPropagation();
+          toggleMenuCommand();
+        }
+      }}
       className="
             absolute
             flex
@@ -24,7 +29,7 @@ export function ClockFace() {
             ring-2
             ring-black/30
             shadow-[0_0_20px_rgba(0,0,0,0.3)]
-            cursor-pointer
+            cursor-auto
             overflow-hidden"
     >
       <Time />

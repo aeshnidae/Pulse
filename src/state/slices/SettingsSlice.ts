@@ -16,7 +16,9 @@ export const createSettingsSlice: StateCreator<AppStore, [], [], SettingsSlice> 
 
     // Beeper
     isBeeperActive: false,
-    beeperInterval: 0,
+    beeperIntervalHours: 0,
+    beeperIntervalMinutes:10,
+    beeperNextBeep: null,
 
     // Theme
     scale: 1,

@@ -37,7 +37,9 @@ export interface SettingsSlice {
 
     // Beeper
     isBeeperActive: boolean;
-    beeperInterval: number; // beep every x minutes, 0 = off
+    beeperIntervalHours: number;
+    beeperIntervalMinutes: number;
+    beeperNextBeep: Date | null;
 
     // Theme
     scale: number;

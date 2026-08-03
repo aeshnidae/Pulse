@@ -10,7 +10,7 @@ export function QuickTask() {
   const [taskName, setTaskName] = useState<string>(defaultTaskName);
 
   const [hours, setHours] = useState<number>(0);
-  const [minutes, setMinutes] = useState<number>(30);
+  const [minutes, setMinutes] = useState<number>(10);
 
 
 
@@ -47,10 +47,10 @@ export function QuickTask() {
         />
 
         {/* 3. Start / Stop Button */}
-        <button onClick={stopQuickTask}>
+        <button type="button" onClick={stopQuickTask}>
           <XIcon size={20} color="#ffffff" />
         </button>
-        <button onClick={prepQuickTask}>
+        <button type="button" onClick={prepQuickTask}>
           <PlayIcon size={20} color="#ffffff" />
         </button>
 

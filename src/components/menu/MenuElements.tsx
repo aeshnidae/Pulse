@@ -41,7 +41,7 @@ export function MenuElements() {
                 animate="center"
                 exit="exit"
                 transition={{type: "tween", duration: 0.3}}
-                className="absolute inset-0 flex flex-col items-center justify-center gap-1"
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-1 pointer-events-auto "
                 >
                     {menuScreens[currentIndex]}
                 </motion.div>
@@ -50,11 +50,3 @@ export function MenuElements() {
     );
     
 };
-//     return (
-//         <div className="
-//             items-center justify-center flex flex-col absolute gap-1">
-//             <QuickTask />
-//             <Beeper />
-//         </div>
-//     );
-// }

@@ -7,6 +7,7 @@ export const processQuickTaskTick = (now: Date) => {
   let isQuickTaskActive = currentState.isQuickTaskActive;
   if (isQuickTaskActive && currentState.quickTaskEnd != null && now >= currentState.quickTaskEnd) {
     isQuickTaskActive = false;
+    console.log("Quick task has finished");
     // Send notification
   }
 
