@@ -39,5 +39,6 @@ export const setBeeper = (hours: number, minutes: number) => {
   useAppStore.setState({
     beeperIntervalHours: hours,
     beeperIntervalMinutes: minutes,
+    beeperNextBeep: null,
   });
 };

@@ -1,5 +1,5 @@
 import { TimeSelector } from "./TimeSelector";
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useAppStore } from "../../../state/useAppStore";
 import { setBeeper, toggleBeeperCommand } from "../../../commands/uiCommands";
 import { Switch } from "@headlessui/react";
@@ -7,22 +7,27 @@ import { Switch } from "@headlessui/react";
 export function Beeper() {
   const currentState = useAppStore.getState();
 
-  const beeperIntervalHours = currentState.beeperIntervalHours;
-  const beeperIntervalMinutes = currentState.beeperIntervalMinutes;
-
-  const [hours, setHours] = useState<number>(beeperIntervalHours);
-  const [minutes, setMinutes] = useState<number>(beeperIntervalMinutes);
+  // Initialize local state with store values
+  const [hours, setHours] = useState<number>(currentState.beeperIntervalHours);
+  const [minutes, setMinutes] = useState<number>(
+    currentState.beeperIntervalMinutes,
+  );
   const isBeeperActive = useAppStore((state) => state.isBeeperActive);
 
-  useEffect(() => {
-    if (isBeeperActive) {
-      console.log(`Beeper scheduled every ${hours}:${minutes}`);
-      setBeeper(hours, minutes);
-    } else {
-      // Optional: If deactivating, you might want to clear the schedule or log it.
-      console.log("Beeper deactivated.");
-    }
-  }, [isBeeperActive, hours, minutes]); // Dependencies array
+  // 1. Define the scheduling logic
+  const handleTimeChangeAndSchedule = useCallback(
+    (newHours: number, newMinutes: number) => {
+      // Update local state first to reflect user input immediately
+      setHours(newHours);
+      setMinutes(newMinutes);
+
+      // 2. Call the setBeeper directly when time changes
+
+      console.log(`Beeper scheduled every ${newHours}:${newMinutes}`);
+      setBeeper(newHours, newMinutes);
+    },
+    [isBeeperActive], // Only re-create this function if the active status changes
+  );
 
   return (
     <div
@@ -34,10 +39,7 @@ export function Beeper() {
         <TimeSelector
           hours={hours}
           minutes={minutes}
-          onChange={(newHours, newMinutes) => {
-            setHours(newHours);
-            setMinutes(newMinutes);
-          }}
+          onChange={handleTimeChangeAndSchedule}
         />
 
         <Switch

@@ -10,10 +10,7 @@ export const processBeeperTick = (now: Date) => {
   
   if (!currentState.beeperNextBeep) {
     console.log("We settin up the beepa");
-    const intervalHours = currentState.beeperIntervalHours;
-    const intervalMinutes = currentState.beeperIntervalMinutes;
-    const nextBeepDate = calculateEndTime(now, intervalHours, intervalMinutes);
-    useAppStore.setState({beeperNextBeep: nextBeepDate});
+    setNextBeep(now);
     return;
   }
 
@@ -24,8 +21,16 @@ export const processBeeperTick = (now: Date) => {
     console.log("BEEP");
     
 
-    useAppStore.setState({beeperNextBeep: null});
+    setNextBeep(now);
   };
 
 
+};
+
+const setNextBeep = (now: Date): void => {
+  const currentState = useAppStore.getState();
+  const intervalHours = currentState.beeperIntervalHours;
+  const intervalMinutes = currentState.beeperIntervalMinutes;
+  const nextBeepDate = calculateEndTime(now, intervalHours, intervalMinutes);
+  useAppStore.setState({beeperNextBeep: nextBeepDate});
 };
