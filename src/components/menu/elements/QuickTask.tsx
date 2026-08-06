@@ -9,9 +9,10 @@ export function QuickTask() {
   const defaultTaskName = useAppStore((state) => state.quickTaskName);
   const [taskName, setTaskName] = useState<string>(defaultTaskName);
 
-  const [hours, setHours] = useState<number>(0);
-  const [minutes, setMinutes] = useState<number>(10);
-
+  const defaultHours = useAppStore((state) => state.quickTaskDefaultHours);
+  const defaultMinutes = useAppStore((state) => state.quickTaskDefaultMinutes);
+  const [hours, setHours] = useState<number>(defaultHours);
+  const [minutes, setMinutes] = useState<number>(defaultMinutes);
 
 
   const prepQuickTask = () => {

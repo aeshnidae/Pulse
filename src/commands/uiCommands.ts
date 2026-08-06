@@ -30,9 +30,15 @@ export const stopQuickTask = () => {
 };
 
 export const toggleBeeperCommand = () => {
-  useAppStore.setState((state) => ({
-    isBeeperActive: !state.isBeeperActive,
-  }));
+  useAppStore.setState((state) => {
+    const isBeeperActive = !state.isBeeperActive;
+    return {
+      isBeeperActive,
+      // Reset the scheduled beep when turning off, so re-enabling
+      // schedules a fresh beep from that point instead of firing a stale one.
+      beeperNextBeep: isBeeperActive ? state.beeperNextBeep : null,
+    };
+  });
 };
 
 export const setBeeper = (hours: number, minutes: number) => {

@@ -1,32 +1,24 @@
 import { TimeSelector } from "./TimeSelector";
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { useAppStore } from "../../../state/useAppStore";
 import { setBeeper, toggleBeeperCommand } from "../../../commands/uiCommands";
 import { Switch } from "@headlessui/react";
 
 export function Beeper() {
-  const currentState = useAppStore.getState();
-
-  // Initialize local state with store values
-  const [hours, setHours] = useState<number>(currentState.beeperIntervalHours);
-  const [minutes, setMinutes] = useState<number>(
-    currentState.beeperIntervalMinutes,
-  );
+  // Reactive subscriptions to the store so the component stays in sync
+  const hours = useAppStore((state) => state.beeperIntervalHours);
+  const minutes = useAppStore((state) => state.beeperIntervalMinutes);
   const isBeeperActive = useAppStore((state) => state.isBeeperActive);
 
   // 1. Define the scheduling logic
   const handleTimeChangeAndSchedule = useCallback(
     (newHours: number, newMinutes: number) => {
-      // Update local state first to reflect user input immediately
-      setHours(newHours);
-      setMinutes(newMinutes);
-
       // 2. Call the setBeeper directly when time changes
 
       console.log(`Beeper scheduled every ${newHours}:${newMinutes}`);
       setBeeper(newHours, newMinutes);
     },
-    [isBeeperActive], // Only re-create this function if the active status changes
+    [], // Only depends on stable setters
   );
 
   return (

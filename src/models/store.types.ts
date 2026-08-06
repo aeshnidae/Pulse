@@ -30,6 +30,8 @@ export interface SettingsSlice {
     quickTaskStart: Date | null;
     quickTaskEnd: Date | null;
     quickTaskName: string;
+    quickTaskDefaultHours: number;
+    quickTaskDefaultMinutes: number;
 
     // Day Progress
     dayStart: number; // Minutes 

@@ -9,6 +9,8 @@ export const createSettingsSlice: StateCreator<AppStore, [], [], SettingsSlice> 
     quickTaskStart: null,
     quickTaskEnd: null,
     quickTaskName: "",
+    quickTaskDefaultHours: 0,
+    quickTaskDefaultMinutes: 10,
 
     // Day Progress
     dayStart: 0,

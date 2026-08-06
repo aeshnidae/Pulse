@@ -1,18 +1,17 @@
 import { useAppStore } from "../state/useAppStore";
-import { } from "../utils/timeLogic";
 
 export const processQuickTaskTick = (now: Date) => {
   const currentState = useAppStore.getState();
+
+  if (!currentState.isQuickTaskActive) {
+    return;
+  }
   
-  let isQuickTaskActive = currentState.isQuickTaskActive;
-  if (isQuickTaskActive && currentState.quickTaskEnd != null && now >= currentState.quickTaskEnd) {
-    isQuickTaskActive = false;
+  if (currentState.quickTaskEnd != null && now >= currentState.quickTaskEnd) {
     console.log("Quick task has finished");
     // Send notification
+    useAppStore.setState({
+      isQuickTaskActive: false,
+    });
   }
-
-
-  useAppStore.setState({
-    isQuickTaskActive: isQuickTaskActive,
-  });
 };
